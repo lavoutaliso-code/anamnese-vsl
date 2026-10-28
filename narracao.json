@@ -1,0 +1,103 @@
+{
+  "_leia": "O roteiro da narração da VSL da Anamnese Inteligente. Cada bloco começa no segundo `em` do vídeo (vsl.mp4, 108,3s) e fala por cima da cena que está na tela naquele instante. Os cortes de cena foram MEDIDOS no arquivo (ffmpeg scene>0.2): 0 4 6 8 9 10 11 19 32 35 37 43 48 55 61 67 74 75 99.",
+  "_voz": {
+    "id": "cgSgspJ2msm6clMCkdW9",
+    "nome": "Jessica — a mesma voz que a dona aprovou pra Lalá em 05/10/2026",
+    "modelo": "eleven_turbo_v2_5",
+    "ajuste": {
+      "stability": 0.42,
+      "similarity_boost": 0.85,
+      "style": 0.3,
+      "use_speaker_boost": true,
+      "speed": 1.0
+    },
+    "_porque": "Menos estilo e mais estabilidade que a Lalá do painel (0.38/0.42): ali ela é conversa, aqui é locução de venda — tem que soar firme, não animada demais. Velocidade 1.0 porque o vídeo já é rápido."
+  },
+  "_regras": [
+    "SEM colchete de emoção ([laughs], [excited]): medido na conta dela em 10/10/2026 — no eleven_turbo_v2_5 a ElevenLabs FALA a palavra dentro do colchete.",
+    "Número por extenso quando for preço: 'noventa e nove e noventa' sai melhor que 'R$ 99,90'.",
+    "Nada que o vídeo não mostre. Cada bloco fala do que está na tela naquele segundo."
+  ],
+  "blocos": [
+    {
+      "em": 0.4,
+      "cena": "cadastro do procedimento — nome, foto, cor",
+      "texto": "Toda cliente é diferente. Você sabe disso."
+    },
+    {
+      "em": 5.0,
+      "cena": "a tigela com a dose aparecendo ao lado",
+      "texto": "Mas calcular a dose no olho, na correria, sempre sobra ou falta."
+    },
+    {
+      "em": 11.5,
+      "cena": "configurando a minha anamnese",
+      "texto": "A Anamnese Inteligente resolve isso de um jeito simples: você configura uma vez."
+    },
+    {
+      "em": 19.5,
+      "cena": "o editor de perguntas",
+      "texto": "Escolhe as perguntas que fazem sentido pro seu salão. Escreve com as suas palavras. Tira o que não usa."
+    },
+    {
+      "em": 28.0,
+      "cena": "ainda o editor",
+      "texto": "É o seu protocolo, do seu jeito."
+    },
+    {
+      "em": 32.5,
+      "cena": "abertura do app pra cliente",
+      "texto": "Daí quem responde é a cliente."
+    },
+    {
+      "em": 35.5,
+      "cena": "tipo do seu cabelo",
+      "texto": "No tablet que você já tem, ela diz o tipo do cabelo dela."
+    },
+    {
+      "em": 43.5,
+      "cena": "o diagrama do fio",
+      "texto": "Histórico químico. Estrutura do fio. Couro cabeludo. Rotina."
+    },
+    {
+      "em": 48.5,
+      "cena": "histórico químico — sim e não",
+      "texto": "Já alisou? Fez coloração? Henê? Está grávida? Oito perguntas, e nenhuma escapa."
+    },
+    {
+      "em": 55.5,
+      "cena": "mais perguntas e o CIENTE",
+      "texto": "E o que ela responde fica registrado, assinado por ela."
+    },
+    {
+      "em": 61.5,
+      "cena": "montando seu diagnóstico 48%",
+      "texto": "Aí o app monta o diagnóstico."
+    },
+    {
+      "em": 67.5,
+      "cena": "analisando qual pré-química",
+      "texto": "Ele cruza tudo e diz qual pré-química aquele cabelo precisa."
+    },
+    {
+      "em": 75.5,
+      "cena": "teste de mechas",
+      "texto": "Avisa quando o teste de mechas é obrigatório, antes de você encostar no cabelo."
+    },
+    {
+      "em": 83.5,
+      "cena": "dose 30ml",
+      "texto": "E entrega a dose exata, em gramas, pro comprimento daquela cliente."
+    },
+    {
+      "em": 91.0,
+      "cena": "doses 87ml e 115ml",
+      "texto": "Trinta. Oitenta e sete. Cento e quinze. Cada uma com a sua."
+    },
+    {
+      "em": 99.5,
+      "cena": "cronograma capilar",
+      "texto": "E ainda sai com trinta dias de cronograma na mão da cliente. É o seu salão, num outro nível."
+    }
+  ]
+}

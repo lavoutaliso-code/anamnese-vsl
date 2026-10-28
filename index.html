@@ -329,9 +329,60 @@ body{margin:0;background:#FAFAFB;width:min(100%,430px);margin:0 auto;
 #t1 .viva,#t2 .viva,#t3 .viva{position:absolute;left:0;top:0;width:100%;height:100%;
   object-fit:cover;border:0;display:block;pointer-events:none}
 #t1 .vidro,#t2 .vidro,#t3 .vidro{position:relative;aspect-ratio:820/1180;overflow:hidden}
-/* o vídeo da VSL: ocupa a largura toda, sem moldura, como ela pediu */
-#t1 .video{position:relative;width:100%;aspect-ratio:16/9;background:#0B2436;overflow:hidden}
-#t1 .video video{width:100%;height:100%;object-fit:cover;display:block;background:#0B2436}
+/* ══ O VÍDEO DENTRO DE UM TABLET (28/10/2026) ═══════════════════════
+   ⛔ ANTES: `.video` era uma faixa 16/9 chapada de #0B2436 com o vídeo
+   em `object-fit:cover`. O problema não era o CSS — era o PRÓPRIO
+   arquivo: medido quadro a quadro, a tela do app vivia num cartão de
+   1380x818 dentro de um quadro de 1920x1080, cercada por uma moldura
+   escura, um título repetido e uma legenda. Num celular de 430px isso
+   fazia a tela do app sair com 308px de largura: "o vídeo de longe".
+   ✅ AGORA: o arquivo foi recortado em `crop=1380:818:270:196` (o cartão
+   e nada mais) e a moldura virou um TABLET de verdade, em CSS, irmão do
+   `.tab` do topo — só que deitado, porque a gravação é deitada. O vidro
+   tem a razão exata do recorte (1380/818), então o vídeo preenche de
+   borda a borda e não sobra tarja preta nenhuma.
+   ⚠️ A razão do vidro tem que acompanhar o recorte. Se o vídeo for
+   recortado de novo com outra medida, mude `--vsl-razao` junto — senão
+   volta a letterbox, que é exatamente o que ela mandou tirar. */
+/* ⚠️ `aspect-ratio:auto` e `overflow:visible` NÃO são decoração: a regra
+   antiga lá em cima (`#t1 .video{aspect-ratio:16/9;overflow:hidden}`)
+   continua valendo, e sem desligar as duas aqui o bloco segue preso em
+   430x242 e CORTA o tablet — medido: o Playwright devolvia a caixa velha
+   mesmo com o HTML novo no ar. */
+#t1 .video{--vsl-razao:1380/818;
+  position:relative;background:transparent;padding:4px 9px 24px;text-align:center;
+  aspect-ratio:auto;overflow:visible;width:100%}
+#t1 .video .legenda-vsl{font-size:clamp(19px,5vw,24px);font-weight:700;letter-spacing:-.03em;
+  line-height:1.14;color:var(--tinta);margin:0 0 14px;text-wrap:balance}
+#t1 .video .legenda-vsl b{color:var(--produto);font-weight:700}
+/* o aparelho deitado — mesmas sombras do `.tab`, raio proporcional à
+   largura/altura pra não deformar em tela nenhuma */
+/* ⚠️ A BORDA TEM QUE CABER A CÂMERA. Com 1,25% ela dava 5px e o ponto da
+   câmera ficava pendurado META DO LADO DE FORA — lia como sujeira na
+   página, não como aparelho. 2,1% é a mesma borda do `.tab` de cima. */
+#t1 .tabh{position:relative;border-radius:3.1%/5.2%;background:#0E0F11;padding:2.1%;
+  box-shadow:0 0 0 1px rgba(255,255,255,.10) inset, 0 1px 3px rgba(20,22,26,.3),
+             0 44px 76px -34px rgba(9,55,84,.6)}
+#t1 .tabh .vidroh{position:relative;overflow:hidden;border-radius:2.1%/3.6%;background:#0B2436;
+  aspect-ratio:var(--vsl-razao)}
+#t1 .tabh .vidroh video{position:absolute;left:0;top:0;width:100%;height:100%;
+  object-fit:cover;display:block;background:#0B2436}
+/* a câmera do tablet: um ponto só, na borda de cima — é o detalhe que faz
+   a moldura ler como aparelho e não como caixa preta */
+#t1 .tabh .cam{position:absolute;left:50%;top:1.05%;transform:translateX(-50%);
+  width:4px;height:4px;border-radius:50%;background:#34383D;
+  box-shadow:0 0 0 .5px rgba(255,255,255,.12)}
+/* o botão de tocar: o repouso fica limpo (pôster + play), e os controles
+   nativos só aparecem depois do primeiro toque — ver o rodapé do arquivo */
+#t1 .video .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:clamp(56px,15vw,84px);aspect-ratio:1;border:0;padding:0;cursor:pointer;
+  border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;
+  box-shadow:0 18px 44px rgba(0,0,0,.45);transition:transform .18s ease,opacity .18s ease}
+#t1 .video .play:hover{transform:translate(-50%,-50%) scale(1.05)}
+#t1 .video .play svg{width:36%;height:auto;margin-left:9%}
+#t1 .video .play[hidden]{display:none}
+#t1 .video .pe-vsl{margin:12px 0 0;font-size:11px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--t42)}
 
 </style></head><body>
 <section id="t1">
@@ -342,7 +393,12 @@ body{margin:0;background:#FAFAFB;width:min(100%,430px);margin:0 auto;
 </section>
 <section class="eleve"><p>Eleve o nível do seu salão.</p></section>
 <section class="chama"><p>Ela é <b>100% editável</b>.<br>Veja como é fácil montar a sua:</p><div class="setas"><i><svg width="30" height="36" viewBox="0 0 24 30" fill="none" stroke="#16B6BC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v22M4 17l8 8 8-8"/></svg></i><i><svg width="30" height="36" viewBox="0 0 24 30" fill="none" stroke="#16B6BC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v22M4 17l8 8 8-8"/></svg></i><i><svg width="30" height="36" viewBox="0 0 24 30" fill="none" stroke="#16B6BC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v22M4 17l8 8 8-8"/></svg></i></div></section>
-<section class="video"><video id="vsl" controls preload="metadata" playsinline poster="assets/capa-video.jpg"><source src="assets/vsl.webm" type="video/webm"><source src="assets/vsl.mp4" type="video/mp4"></video><span class="barra"><i></i></span></section>
+<section class="video"><p class="legenda-vsl">Você configura <b>uma vez</b>, o app faz o resto.</p>
+  <div class="tabh"><div class="vidroh">
+    <video id="vsl" preload="metadata" playsinline poster="assets/capa-video.jpg"><source src="assets/vsl.webm" type="video/webm"><source src="assets/vsl.mp4" type="video/mp4"></video>
+    <button class="play" id="play-vsl" type="button" aria-label="Tocar o vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0B2436" d="M8 5v14l11-7z"/></svg></button>
+  </div><span class="cam"></span></div>
+  <p class="pe-vsl">Anamnese Inteligente · 1min48</p></section>
 <div class="pe"><a class="btn" href="#t3" data-saida="clique">Quero no meu salão</a><p>Roda no tablet que você já tem.</p></div>
 </section>
 <section id="t2">
@@ -370,4 +426,24 @@ body{margin:0;background:#FAFAFB;width:min(100%,430px);margin:0 auto;
 </section>
 <div style="height:30px"></div>
 </section>
+<script>
+/* ══ O PLAY DO VÍDEO DA VSL ════════════════════════════════════════
+   ⚠️ O `controls` NÃO nasce no HTML de propósito: com ele, o vídeo
+   parado mostra a barra preta do navegador dentro do vidro do tablet, e
+   a moldura deixa de ler como aparelho. Então o repouso é pôster + play,
+   e os controles entram no primeiro toque — daí em diante ela pausa,
+   volta e avança como em qualquer vídeo.
+   ⚠️ O toque no PRÓPRIO vídeo também toca, não só no botão: se este
+   script falhar ou o botão sumir, ainda existe um jeito de dar play.  */
+(function(){
+  var v = document.getElementById('vsl');
+  var b = document.getElementById('play-vsl');
+  if(!v) return;
+  function tocar(){ v.controls = true; var p = v.play(); if(p&&p.catch) p.catch(function(){ v.controls=true; }); }
+  if(b) b.addEventListener('click', tocar);
+  v.addEventListener('click', function(){ if(!v.controls) tocar(); });
+  v.addEventListener('play',  function(){ if(b) b.hidden = true;  });
+  v.addEventListener('pause', function(){ /* o botão não volta: os controles nativos já estão na tela */ });
+})();
+</script>
 </body></html>
