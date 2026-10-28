@@ -220,6 +220,79 @@ window.PIXEL_ID = '1792354588742315';
 #t2 .sec .olho-s{margin-bottom:8px}
 #t2 .sec .tit-s{margin-top:0;margin-bottom:20px}
 #t2 .sec .reel{width:74%;margin:0 auto}
+/* ══ tp ← j-4.html ══ */
+#tp{--papel:#FAFAFB;--tinta:#1D1D1F;--t62:rgba(29,29,31,.62);--t42:rgba(29,29,31,.42);
+  --fio:rgba(29,29,31,.10);--navy:#0B2436;--produto:#16B6BC;--magenta:#C2005E;--marca:#FFD3E3}
+#tp *,#tp{margin:0;padding:0;box-sizing:border-box}
+#tp{font-family:-apple-system,BlinkMacSystemFont,system-ui,'SF Pro Display','SF Pro Text',
+  'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;
+  background:var(--papel);color:var(--tinta);line-height:1.4;overflow-x:hidden;
+  width:min(100%,430px);margin:0 auto;min-height:100vh;
+  box-shadow:0 0 0 1px rgba(20,22,26,.06)}
+#tp img{max-width:100%;display:block}
+#tp .marca{display:flex;align-items:center;gap:10px}
+#tp .marca img{width:104px}
+#tp .marca span{font-size:9px;font-weight:700;letter-spacing:1.7px;text-transform:uppercase;
+  color:var(--t42);padding-left:10px;border-left:1px solid var(--fio)}
+#tp mark{background:linear-gradient(transparent 52%, var(--marca) 52%);
+  color:inherit;padding:0 4px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+#tp .tab{border-radius:7%/4.6%;background:#0E0F11;padding:2.1%;
+  box-shadow:0 0 0 1px rgba(255,255,255,.10) inset, 0 1px 3px rgba(20,22,26,.3),
+             0 44px 76px -34px rgba(9,55,84,.6)}
+#tp .tab .vidro{border-radius:5.6%/3.7%;overflow:hidden;background:#fff;
+  position:relative;aspect-ratio:820/1180}
+#tp .tab .vidro img{width:100%;height:100%;object-fit:cover;object-position:top center}
+#tp .sec{padding:24px 20px 0;text-align:center}
+#tp .pronta-t{font-size:clamp(32px,8.6vw,40px);line-height:1.02;letter-spacing:-.045em;font-weight:700}
+#tp .olho-u{display:block;font-size:11px;font-weight:800;letter-spacing:1.9px;text-transform:uppercase;
+  color:var(--t42)}
+#tp .linha-u{font-size:15.5px;color:var(--t62);margin-top:14px;line-height:1.45}
+#tp .linha-u b{color:var(--tinta);font-weight:600}
+#tp .dz{width:var(--d,64px);height:var(--d,64px);color:var(--produto);margin:0 auto}
+#tp .dz svg{width:100%;height:100%;display:block}
+#tp .editar{display:inline-flex;align-items:center;gap:9px;background:rgba(22,182,188,.10);
+  border-radius:99px;padding:9px 16px 9px 11px;margin-top:16px}
+#tp .editar .dz{--d:20px;margin:0}
+#tp .editar span{font-size:14.5px;font-weight:700;letter-spacing:-.02em}
+#tp .assina-mini{display:inline-flex;align-items:center;gap:12px;text-align:left;margin-top:20px;
+  background:#fff;border-radius:18px;padding:12px 16px 12px 12px;
+  box-shadow:0 1px 3px rgba(9,55,84,.1), 0 18px 36px -24px rgba(9,55,84,.5)}
+#tp .assina-mini img{width:50px;height:50px;border-radius:50%;flex:none}
+#tp .assina-mini b{font-size:13.5px;font-weight:600;line-height:1.3;color:var(--t62)}
+#tp .assina-mini i{font-style:normal;color:var(--tinta);font-weight:700}
+/* ── o cartão que escapa ──────────────────────────────────────────
+   É um PNG com o canto já arredondado no Pillow, então a sombra vai no
+   filtro: um box-shadow num <img> transparente desenharia um retângulo
+   atrás do canto redondo. */
+#tp .cart{position:absolute;z-index:3;filter:drop-shadow(0 1px 2px rgba(9,55,84,.18))
+       drop-shadow(0 18px 26px rgba(9,55,84,.3))}
+#tp .cart img{width:100%;display:block}
+@keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media (prefers-reduced-motion:reduce){.cart .mv{animation:none!important}}
+#tp .selo-u{position:absolute;width:104px;height:104px;border-radius:50%;
+  background:var(--produto);color:#fff;display:grid;place-items:center;text-align:center;
+  transform:rotate(-9deg);box-shadow:0 14px 30px -10px rgba(22,182,188,.9);z-index:9}
+#tp .selo-u b{font-size:15px;font-weight:800;line-height:1.1;letter-spacing:-.02em}
+/* o título virou lista de checks */
+#tp .checks{display:inline-block;text-align:left;list-style:none;margin-top:2px;max-width:344px}
+#tp .checks li{display:flex;gap:11px;align-items:flex-start}
+#tp .checks li+li{margin-top:13px}
+#tp .checks .tq{width:27px;height:27px;flex:none;margin-top:2px}
+#tp .checks p{font-size:25px;line-height:1.14;font-weight:700;letter-spacing:-.038em}
+#tp .checks p em{font-style:normal;color:var(--produto)}
+#tp .checks li+li p{font-size:19px;font-weight:600;letter-spacing:-.028em;color:var(--t62)}
+#tp .checks li+li p b{color:var(--tinta);font-weight:700}
+#tp .palco{position:relative;width:100%;height:584px;margin-top:18px;
+  perspective:1000px;perspective-origin:50% 20%}
+#tp .bancada{position:absolute;left:50%;top:206px;width:264px;
+  transform:translateX(-50%) rotateX(58deg);transform-origin:50% 0}
+#tp .bancada .tab{width:100%}
+/* a sombra no chão: sem ela o aparelho deitado flutua sem apoio */
+#tp .palco::after{content:'';position:absolute;left:50%;top:506px;width:272px;height:72px;
+  transform:translateX(-50%);border-radius:50%;background:rgba(9,55,84,.24);filter:blur(24px)}
+#tp .cart{left:50%}
+#tp .sec .linha-u{margin-top:10px}
 /* ══ t3 ← pa-2.html ══ */
 #t3{--papel:#FAFAFB;--tinta:#1D1D1F;--t62:rgba(29,29,31,.62);--t42:rgba(29,29,31,.42);
   --fio:rgba(29,29,31,.10);--navy:#0B2436;--produto:#16B6BC;--magenta:#C2005E;
@@ -345,7 +418,12 @@ video{max-width:100%;display:block}
 html{scroll-behavior:smooth;background:#E9EBEE}
 body{margin:0;background:#FAFAFB;width:min(100%,430px);margin:0 auto;
   box-shadow:0 0 0 1px rgba(20,22,26,.06);overflow-x:hidden}
-#t1,#t2,#t3{display:block;position:relative}
+#t1,#t2,#tp,#t3{display:block;position:relative}
+/* ⚠️ A tela «pronta pra usar» tem cartões que SAEM da largura de
+   propósito. O `overflow-x:hidden` do body não basta (com o html em
+   `visible` o recorte não chega à janela — medido: a página foi a 868px),
+   então quem recorta é a própria seção. */
+#tp{overflow:hidden}
 /* a tela dentro do tablet: vídeo em laço, nunca esticado */
 #t1 .viva,#t2 .viva,#t3 .viva{position:absolute;left:0;top:0;width:100%;height:100%;
   object-fit:cover;border:0;display:block;pointer-events:none}
@@ -373,6 +451,19 @@ body{margin:0;background:#FAFAFB;width:min(100%,430px);margin:0 auto;
   <div class="reel"><video poster="assets/poster-depoimento.jpg" autoplay muted loop playsinline preload="auto"><source src="assets/depoimento-lavoutaliso.webm" type="video/webm"><source src="assets/depoimento-lavoutaliso.mp4" type="video/mp4"></video></div>
 </section>
 <div class="pe"><a class="btn" href="#t3" data-saida="clique">Quero no meu salão</a><p>Roda no tablet que você já tem.</p></div>
+</section>
+<section id="tp">
+<section class="sec">
+  <ul class="checks"><li><svg class="tq" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#16B6BC"/><path fill="none" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" d="M7.2 12.4l3.1 3.1 6.4-6.9"/></svg><p>Você já recebe ela<br><em>pronta pra usar!</em></p></li><li><svg class="tq" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#16B6BC"/><path fill="none" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" d="M7.2 12.4l3.1 3.1 6.4-6.9"/></svg><p>E ainda <b>personaliza</b> do seu jeito.</p></li></ul>
+  <div class="palco">
+    <div class="bancada"><div class="tab"><div class="vidro"><img src="assets/tela-config-perg.jpg" alt="as perguntas já configuradas"></div></div></div>
+    <div class="cart" style="top:212px; margin-left:-125px; transform:perspective(700px) rotateX(16deg);width:250px"><span class="mv" style="display:block;animation:flutua 3.4s ease-in-out 0s infinite"><img src="assets/q-chapinha.png" alt=""></span></div><div class="cart" style="top:164px; margin-left:-130px; transform:perspective(700px) rotateX(12deg);width:260px"><span class="mv" style="display:block;animation:flutua 3.4s ease-in-out 0.4s infinite"><img src="assets/q-progressiva.png" alt=""></span></div><div class="cart" style="top:112px; margin-left:-135px; transform:perspective(700px) rotateX(8deg);width:270px"><span class="mv" style="display:block;animation:flutua 3.4s ease-in-out 0.8s infinite"><img src="assets/q-mechas.png" alt=""></span></div><div class="cart" style="top:56px;  margin-left:-140px; transform:perspective(700px) rotateX(4deg);width:280px"><span class="mv" style="display:block;animation:flutua 3.4s ease-in-out 1.2s infinite"><img src="assets/q-relaxamento.png" alt=""></span></div><div class="cart" style="top:-4px;  margin-left:-145px; transform:none;width:290px"><span class="mv" style="display:block;animation:flutua 3.4s ease-in-out 1.6s infinite"><img src="assets/q-coloracao.png" alt=""></span></div>
+  </div>
+  <p class="linha-u">Todas as perguntas da <b>progressiva sem formol</b> já vêm configuradas, e você
+    edita qualquer uma.</p>
+  <span class="assina-mini"><img src="assets/avatar-lavoutaliso.png" alt="lavou tá liso"><b>A mesma anamnese que o<br><i>Lavou Tá Liso</i> usa todo dia.</b></span>
+</section>
+<div style="height:34px"></div>
 </section>
 <section id="t3">
 <section class="sec">
